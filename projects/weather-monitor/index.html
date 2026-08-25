@@ -8,10 +8,8 @@
     <!-- >>> EDIT: Project page title / SEO description <<< -->
     <title>Weather Monitoring Bot | Aether Sud</title>
 
-    <meta
-        name="description"
-        content="Case study for a Python-based weather monitoring and alerting tool built by Aether Sud."
-    >
+    <meta name="description"
+        content="Case study for a Python-based weather monitoring and alerting tool built by Aether Sud.">
 
     <!-- Project pages reuse the main site stylesheet -->
     <link rel="stylesheet" href="../../css/main.css">
@@ -34,13 +32,8 @@
 
             <a href="#" class="resume-link">Resume</a>
 
-            <button
-                class="menu-toggle"
-                type="button"
-                aria-label="Open navigation menu"
-                aria-expanded="false"
-                aria-controls="mobile-menu"
-            >
+            <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"
+                aria-controls="mobile-menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -66,10 +59,7 @@
 
         <section class="project-hero">
 
-            <a
-                href="../../index.html#projects"
-                class="project-back-link"
-            >
+            <a href="../../index.html#projects" class="project-back-link">
                 ← Back to Projects
             </a>
 
@@ -81,17 +71,17 @@
 
             <!-- >>> EDIT: Short project summary <<< -->
             <p class="project-lead">
-                A Python-based monitoring tool designed to collect weather
-                information, evaluate potentially disruptive conditions, and
-                make the results easier to surface through operational workflows.
+                A Python-based weather monitoring utility that retrieves multi-location
+                forecast data, identifies potentially disruptive weather conditions,
+                groups consecutive events, and produces a readable operational report.
             </p>
 
             <div class="project-tags">
                 <span>Python</span>
-                <span>REST APIs</span>
+                <span>REST API</span>
                 <span>JSON</span>
+                <span>Open-Meteo</span>
                 <span>Automation</span>
-                <span>Weather Data</span>
             </div>
 
             <div class="project-meta">
@@ -125,14 +115,18 @@
             <p class="section-label">Overview</p>
             <h2>The Problem</h2>
 
-            <!-- >>> EDIT: Explain the original problem here <<< -->
             <p>
-                Weather conditions can affect operations across geographically
-                distributed locations, but manually checking forecasts and
-                alerts for multiple areas is repetitive and easy to overlook.
-                The goal of this project was to explore how weather data could
-                be collected and processed automatically so relevant conditions
-                could be surfaced more efficiently.
+                Monitoring weather across multiple geographic locations can require
+                repetitive manual checks, especially when the goal is not simply to
+                view a forecast but to identify conditions that may require additional
+                attention.
+            </p>
+
+            <p>
+                I built Weather Monitor to explore how that process could be automated.
+                Instead of reviewing individual forecasts, the application collects
+                weather data for multiple configured locations and surfaces notable
+                conditions in a consolidated report.
             </p>
 
         </section>
@@ -147,18 +141,18 @@
             <p class="section-label">Approach</p>
             <h2>The Solution</h2>
 
-            <!-- >>> EDIT: Update this as the project evolves <<< -->
             <p>
-                I built a Python application that retrieves weather information
-                from external APIs, processes structured response data, and
-                evaluates conditions against defined monitoring logic.
+                Weather Monitor is a Python command-line application that queries the
+                Open-Meteo forecast API for a configurable list of locations. The
+                returned JSON data is analyzed against predefined weather
+                classifications and wind thresholds to identify potentially disruptive
+                conditions.
             </p>
 
             <p>
-                The project also became an opportunity to practice API
-                integration, JSON processing, automation, error handling, and
-                designing output that could eventually be consumed by other
-                systems or displayed through a web interface.
+                Matching weather events occurring across consecutive days are grouped
+                into date ranges, reducing repetitive output and producing a compact
+                report that can be reviewed quickly.
             </p>
 
         </section>
@@ -177,10 +171,10 @@
 
                 <div class="architecture-node">
                     <span>01</span>
-                    <h3>Location Input</h3>
+                    <h3>Locations</h3>
                     <p>
-                        A configured location or list of locations defines
-                        what areas should be monitored.
+                        Configured demo locations define which geographic areas
+                        should be monitored.
                     </p>
                 </div>
 
@@ -188,10 +182,10 @@
 
                 <div class="architecture-node">
                     <span>02</span>
-                    <h3>Weather API</h3>
+                    <h3>REST API</h3>
                     <p>
-                        Python requests current and forecast weather data from
-                        external services.
+                        Python requests daily forecast data from the
+                        Open-Meteo API.
                     </p>
                 </div>
 
@@ -201,8 +195,8 @@
                     <span>03</span>
                     <h3>Analysis</h3>
                     <p>
-                        API responses are parsed and evaluated for relevant
-                        conditions.
+                        Weather codes and wind gusts are evaluated against
+                        configurable monitoring criteria.
                     </p>
                 </div>
 
@@ -210,10 +204,10 @@
 
                 <div class="architecture-node">
                     <span>04</span>
-                    <h3>Output</h3>
+                    <h3>Report</h3>
                     <p>
-                        Results can be formatted for alerts, operational tools,
-                        or web-based presentation.
+                        Consecutive events are grouped and converted into a
+                        readable multi-location report.
                     </p>
                 </div>
 
@@ -236,33 +230,32 @@
                 <article class="project-detail-card">
                     <h3>API Integration</h3>
                     <p>
-                        Retrieves structured weather data from external
-                        endpoints and handles JSON responses for downstream
-                        processing.
+                        Uses Python's Requests library to query the Open-Meteo REST API
+                        and process JSON forecast responses across multiple locations.
                     </p>
                 </article>
 
                 <article class="project-detail-card">
-                    <h3>Condition Analysis</h3>
+                    <h3>Weather Classification</h3>
                     <p>
-                        Evaluates forecast and alert information against
-                        monitoring logic to identify conditions worth surfacing.
+                        Maps numerical weather codes into readable conditions and
+                        identifies weather categories considered notable for monitoring.
                     </p>
                 </article>
 
                 <article class="project-detail-card">
-                    <h3>Automation</h3>
+                    <h3>Threshold Detection</h3>
                     <p>
-                        Designed to reduce repetitive manual weather checks and
-                        support scheduled or automated execution.
+                        Evaluates forecast wind gusts against a configurable threshold
+                        and surfaces high-wind events alongside significant weather.
                     </p>
                 </article>
 
                 <article class="project-detail-card">
-                    <h3>Extensibility</h3>
+                    <h3>Event Grouping</h3>
                     <p>
-                        Output can be adapted for messaging platforms, dashboards,
-                        websites, or other operational workflows.
+                        Detects matching conditions across consecutive forecast days
+                        and combines them into date ranges to reduce repetitive output.
                     </p>
                 </article>
 
@@ -282,24 +275,25 @@
 
             <div class="project-story">
 
-                <!-- >>> EDIT:
-                     Add real issues you encountered here.
-                     Specific debugging stories are especially valuable.
-                -->
-
                 <p>
-                    One of the biggest challenges was ensuring the program did
-                    not simply retrieve weather data, but interpreted the right
-                    information for operational use. Forecast timing, active
-                    alerts, and different forms of weather data can require
-                    different handling.
+                    Early testing revealed an important limitation in the original
+                    design. Although the application successfully retrieved forecast
+                    data, relying on daily weather classifications could miss
+                    operationally relevant conditions occurring over shorter periods
+                    or hazards communicated through active weather alerts.
                 </p>
 
                 <p>
-                    Iterating on the project reinforced the importance of
-                    validating API responses against real-world conditions
-                    instead of assuming that a technically successful request
-                    automatically means the resulting output is useful.
+                    This highlighted an important distinction between retrieving valid
+                    data and retrieving data with enough detail for the intended use
+                    case. Future versions are planned to incorporate more granular
+                    forecast analysis and active weather alert data.
+                </p>
+
+                <p>
+                    The public version of the project also uses demonstration locations
+                    rather than locations associated with the environment that
+                    originally inspired the tool.
                 </p>
 
             </div>
@@ -313,24 +307,31 @@
 
         <section class="project-section">
 
-            <p class="section-label">Source</p>
-            <h2>Explore the Project</h2>
+            <p class="section-label">Example</p>
+            <h2>Sample Output</h2>
 
             <p>
-                Source code and additional technical documentation will be
-                published as the project is prepared for public release.
+                Weather Monitor condenses forecast analysis into a simple
+                command-line report designed for quick review.
             </p>
 
-            <div class="hero-actions project-actions">
+            <div class="terminal-window">
 
-                <!-- >>> EDIT: Add real repository URL when ready <<< -->
-                <a href="#">
-                    View Source
-                </a>
+                <div class="terminal-header">
+                    <span></span>
+                    <span></span>
+                    <span></span>
 
-                <a href="../../index.html#projects">
-                    More Projects
-                </a>
+                    <p>weather_monitor.py</p>
+                </div>
+
+                <pre class="terminal-output"><code>Weather Monitor - 08/25/2026
+
+Seattle, WA: ☀️ Clear today, no notable upcoming weather
+Denver, CO: ⛅ Partly cloudy today, upcoming ⛈️ Thunderstorms 08/27
+Dallas, TX: 🌤️ Mainly clear today, no notable upcoming weather
+Chicago, IL: 🌧️ Rain today, upcoming 💨 High wind gusts 48 mph 08/28
+New York, NY: ☀️ Clear today, no notable upcoming weather</code></pre>
 
             </div>
 
