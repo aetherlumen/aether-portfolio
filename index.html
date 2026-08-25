@@ -26,7 +26,10 @@
                     <li><a href="#about">About</a></li>
                 </ul>
 
-                <a href="#" class="resume-link">Resume</a>
+                <a href="assets/documents/Aether_Sud_Resume.pdf" class="resume-link" target="_blank"
+                    rel="noopener noreferrer">
+                    Resume
+                </a>
 
                 <!-- >>> MOBILE MENU BUTTON <<< -->
                 <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"
@@ -45,7 +48,10 @@
                 <a href="#writing">Writing</a>
                 <a href="#experience">Experience</a>
                 <a href="#about">About</a>
-                <a href="#" class="mobile-resume-link">Resume</a>
+                <a href="assets/documents/Aether_Sud_Resume.pdf" class="mobile-resume-link" target="_blank"
+                    rel="noopener noreferrer">
+                    Resume
+                </a>
 
             </div>
         </header>
@@ -53,27 +59,31 @@
         <main>
 
             <section id="home" class="hero">
-                <!-- Decorative network animation -->
+
+                <!-- Full-width decorative network field -->
                 <canvas id="network-canvas" class="network-canvas" aria-hidden="true"></canvas>
 
-                <div class="hero-content">
-                    <p class="hero-label">IT Operations • Infrastructure • Automation</p>
+                <!-- Keeps actual content aligned with the rest of the site -->
+                <div class="hero-inner">
 
-                    <h1>Aether Sud</h1>
+                    <div class="hero-content">
+                        <p class="hero-label">IT Operations • Infrastructure • Automation</p>
 
-                    <h2>I troubleshoot systems, build tools, and occasionally break things on purpose.</h2>
+                        <h1>Aether Sud</h1>
 
-                    <p class="hero-description">
-                        IT operations professional working across infrastructure,
-                        production systems, networking, APIs, automation, and
-                        application support.
-                    </p>
+                        <h2>I troubleshoot systems, build tools, and occasionally break things on purpose.</h2>
 
-                    <div class="hero-actions">
-                        <a href="#projects">View My Work</a>
-                        <a href="https://github.com/aetherlumen">GitHub</a>
+                        <p class="hero-description">
+                            IT operations professional working across infrastructure,
+                            production systems, networking, APIs, automation, and
+                            application support.
+                        </p>
+
+                        <div class="hero-actions">
+                            <a href="#projects">View My Work</a>
+                            <a href="https://github.com/aetherlumen">GitHub</a>
+                        </div>
                     </div>
-                </div>
             </section>
 
             <section id="projects" class="projects">
@@ -158,115 +168,286 @@
                 </div>
             </section>
 
-            <section id="writing" class="writing">
-                <h2>Technical Writing</h2>
+            <!-- =====================================================
+     WRITING & DOCUMENTATION
+     Featured technical writing and documentation.
+     Add new featured articles to .writing-grid below.
+     ===================================================== -->
 
-                <p class="reveal">
-                    Documentation, troubleshooting guides, technical explainers,
-                    and notes from things I've built and learned.
-                </p>
+            <section id="writing" class="writing section-container">
+
+                <div class="section-heading">
+                    <p class="section-label">KNOWLEDGE BASE</p>
+                    <h2>Writing & Documentation</h2>
+
+                    <p class="section-description">
+                        Technical guides, project documentation, troubleshooting
+                        workflows, and lessons from things I've built, broken,
+                        and learned.
+                    </p>
+                </div>
+
+                <div class="writing-grid">
+
+                    <!-- REST API TROUBLESHOOTING -->
+                    <article class="writing-card">
+
+                        <p class="writing-type">TROUBLESHOOTING GUIDE</p>
+
+                        <h3>A Practical Approach to REST API Troubleshooting</h3>
+
+                        <p>
+                            A systematic workflow for diagnosing failed API requests,
+                            from connectivity and authentication to request structure,
+                            response codes, and application logs.
+                        </p>
+
+                        <div class="writing-tags">
+                            <span>REST</span>
+                            <span>HTTP</span>
+                            <span>JSON</span>
+                            <span>APIs</span>
+                        </div>
+
+                        <a href="writing/rest-api-troubleshooting/index.html" class="writing-link">
+                            Read Guide →
+                        </a>
+
+                    </article>
+
+
+                    <!-- WEATHER MONITOR -->
+                    <article class="writing-card">
+
+                        <p class="writing-type">PROJECT NOTES</p>
+
+                        <h3>Building Weather Monitor</h3>
+
+                        <p>
+                            Notes on designing a Python weather monitoring utility,
+                            working with forecast APIs, processing data, and improving
+                            the project through testing.
+                        </p>
+
+                        <div class="writing-tags">
+                            <span>Python</span>
+                            <span>APIs</span>
+                            <span>Automation</span>
+                        </div>
+
+                        <a href="projects/weather-monitor/index.html" class="writing-link">
+                            View Project →
+                        </a>
+
+                    </article>
+
+
+                    <!-- AETHERLAB -->
+                    <article class="writing-card">
+
+                        <p class="writing-type">LAB NOTES</p>
+
+                        <h3>Building AetherLab</h3>
+
+                        <p>
+                            Documenting the design and development of a personal
+                            infrastructure lab for networking, Linux, virtualization,
+                            monitoring, and automation.
+                        </p>
+
+                        <div class="writing-tags">
+                            <span>Networking</span>
+                            <span>Linux</span>
+                            <span>Infrastructure</span>
+                        </div>
+
+                        <a href="#" class="writing-link">
+                            Coming Soon
+                        </a>
+
+                    </article>
+
+                </div>
+
             </section>
+            <!-- =====================================================
+     EXPERIENCE
+     Career progression and technical focus.
+     Keep this concise; the resume contains full detail.
+     ===================================================== -->
 
             <section id="experience" class="experience">
 
-                <p class="section-label reveal">Career Path</p>
-                <h2 class="reveal">Experience</h2>
+                <p class="section-label">Career Path</p>
+                <h2>Experience</h2>
 
                 <div class="timeline">
 
+                    <!-- =================================================
+             NETWORK CONTROL TECHNICIAN
+             ================================================= -->
+
                     <article class="timeline-item reveal">
+
                         <div class="timeline-marker"></div>
 
                         <div class="timeline-content">
+
                             <p class="timeline-date">2026 – Present</p>
+
                             <h3>Network Control Technician, Junior I</h3>
+
                             <p class="timeline-company">Shift4</p>
 
-                            <p>
-                                Supporting production operations through monitoring,
-                                incident response, Splunk analysis, patching, deployments,
-                                change management, automation, and infrastructure support.
+                            <p class="timeline-focus">
+                                Production Operations / Splunk / Incident Response / Automation
                             </p>
+
+                            <p>
+                                Supporting business-critical production environments through
+                                monitoring, Splunk analysis, incident response, patching,
+                                deployments, change management, service recovery, and
+                                infrastructure coordination.
+                            </p>
+
                         </div>
+
                     </article>
 
+
+                    <!-- =================================================
+             SENIOR TECHNICAL SUPPORT
+             ================================================= -->
+
                     <article class="timeline-item reveal">
+
                         <div class="timeline-marker"></div>
 
                         <div class="timeline-content">
+
                             <p class="timeline-date">2023 – 2026</p>
+
                             <h3>Senior Technical Support Associate II</h3>
+
                             <p class="timeline-company">Shift4</p>
 
-                            <p>
-                                Handled advanced application, networking, POS, API, and
-                                integration issues while serving as a Shift4Shop subject
-                                matter expert for complex enterprise and developer-facing cases.
+                            <p class="timeline-focus">
+                                APIs / Application Support / POS Systems / Developer Support
                             </p>
+
+                            <p>
+                                Handled advanced application, networking, payment, and POS
+                                issues while supporting complex enterprise cases and
+                                developer-facing REST and SOAP API integrations.
+                            </p>
+
+                            <p>
+                                Beginning in 2024, served as a Shift4Shop subject matter
+                                expert for escalations involving custom development,
+                                integrations, code-level troubleshooting, and advanced
+                                platform maintenance.
+                            </p>
+
                         </div>
+
                     </article>
 
+
+                    <!-- =================================================
+             SHIFT4DINE INSTALLER
+             Additional technical assignment alongside Senior Support.
+             ================================================= -->
+
                     <article class="timeline-item reveal">
+
                         <div class="timeline-marker"></div>
 
                         <div class="timeline-content">
+
                             <p class="timeline-date">2025</p>
+
                             <h3>Shift4Dine Certified Installer</h3>
+
                             <p class="timeline-company">Additional Technical Assignment</p>
 
-                            <p>
-                                Performed on-site installation, configuration, networking,
-                                testing, and troubleshooting of POS systems at restaurant
-                                and enterprise environments.
+                            <p class="timeline-focus">
+                                Hardware Deployment / Networking / POS Systems
                             </p>
+
+                            <p>
+                                Performed on-site deployment, configuration, networking,
+                                testing, and troubleshooting of POS workstations, payment
+                                devices, peripherals, switches, and wireless access points
+                                across restaurant and enterprise environments.
+                            </p>
+
                         </div>
+
                     </article>
 
+
+                    <!-- =================================================
+             TECHNICAL SUPPORT
+             ================================================= -->
+
                     <article class="timeline-item reveal">
+
                         <div class="timeline-marker"></div>
 
                         <div class="timeline-content">
+
                             <p class="timeline-date">2021 – 2023</p>
+
                             <h3>Technical Support Representative</h3>
+
                             <p class="timeline-company">Shift4</p>
+
+                            <p class="timeline-focus">
+                                Web Platforms / DNS / SFTP / Troubleshooting
+                            </p>
 
                             <p>
                                 Supported merchants across web, application, domain,
-                                connectivity, file-management, and platform configuration issues.
+                                connectivity, file-management, and platform configuration
+                                issues while building deeper experience with HTML, CSS,
+                                DNS, SFTP, and structured data.
                             </p>
+
                         </div>
+
                     </article>
 
+
+                    <!-- =================================================
+             EARLY IT CONTRACTS
+             ================================================= -->
+
                     <article class="timeline-item reveal">
+
                         <div class="timeline-marker"></div>
 
                         <div class="timeline-content">
-                            <p class="timeline-date">2020 – 2021</p>
-                            <h3>Sales Representative</h3>
-                            <p class="timeline-company">3dcart / Shift4</p>
 
-                            <p>
-                                Began with 3dcart shortly before its acquisition by Shift4,
-                                learning the e-commerce and payment ecosystem before moving
-                                into technical support.
-                            </p>
-                        </div>
-                    </article>
-
-                    <article class="timeline-item reveal">
-                        <div class="timeline-marker"></div>
-
-                        <div class="timeline-content">
                             <p class="timeline-date">2020</p>
+
                             <h3>IT Technician</h3>
-                            <p class="timeline-company">Convey Health Solutions & Suffolk Construction</p>
+
+                            <p class="timeline-company">
+                                Convey Health Solutions / Suffolk Construction
+                            </p>
+
+                            <p class="timeline-focus">
+                                Enterprise Hardware / Workstations / VPN / Connectivity
+                            </p>
 
                             <p>
                                 Supported enterprise workstation deployment, virtualization,
-                                VPN access, remote-work infrastructure, and network-connected
-                                systems across short-term IT contracts.
+                                remote-access infrastructure, VPN connectivity, and
+                                network-connected systems across short-term IT contracts.
                             </p>
+
                         </div>
+
                     </article>
 
                 </div>
@@ -275,37 +456,51 @@
 
             <section id="about" class="about">
 
-                <p class="section-label">Behind the Terminal</p>
-                <h2>About Me</h2>
+                <p class="section-label">About</p>
+                <h2>Still Learning. Still Building.</h2>
 
-                <div class="about-content reveal">
+                <div class="about-grid">
 
-                    <p class="about-intro">
-                        I'm Aether, an IT operations professional who enjoys understanding
-                        how systems work, figuring out why they don't, and building things
-                        along the way.
-                    </p>
+                    <div class="about-copy">
 
-                    <p>
-                        My background spans technical support, production operations,
-                        networking, APIs, automation, enterprise hardware, and web
-                        technologies. I started my career in customer-facing roles and
-                        gradually found myself gravitating toward increasingly technical
-                        problems, from complex application and API troubleshooting to
-                        infrastructure monitoring and incident response.
-                    </p>
+                        <p class="about-intro">
+                            I'm Aether, an IT operations professional who likes figuring out
+                            how systems work, why they fail, and how to make them better.
+                        </p>
 
-                    <p>
-                        Outside of work, I use personal projects like AetherLab to expand
-                        my skills in infrastructure, software development, networking, and
-                        automation. I'm also studying game development and enjoy exploring
-                        the intersection of technology, creativity, and problem solving.
-                    </p>
+                        <p>
+                            My background spans production operations, technical support,
+                            APIs, networking, automation, hardware deployment, and web
+                            technologies. Over time, I've gravitated toward increasingly
+                            technical problems and roles where troubleshooting, systems
+                            thinking, and communication all matter.
+                        </p>
+
+                        <p>
+                            Outside of work, I use projects like AetherLab, Weather Monitor,
+                            and this portfolio to keep expanding into infrastructure,
+                            software development, frontend development, and game development.
+                        </p>
+
+                    </div>
+
+                    <aside class="about-sidebar">
+
+                        <p class="about-sidebar-label">CURRENTLY EXPLORING</p>
+
+                        <ul>
+                            <li>Networking & infrastructure</li>
+                            <li>Python & PowerShell automation</li>
+                            <li>Linux administration</li>
+                            <li>Frontend JavaScript</li>
+                            <li>Game development</li>
+                        </ul>
+
+                    </aside>
 
                 </div>
 
             </section>
-
         </main>
 
         <footer class="site-footer">

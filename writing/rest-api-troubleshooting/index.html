@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- >>> EDIT: Article title / SEO <<< -->
+    <title>A Practical Approach to REST API Troubleshooting | Aether Sud</title>
+
+    <meta
+        name="description"
+        content="A practical troubleshooting workflow for diagnosing REST API issues involving connectivity, authentication, HTTP status codes, payloads, and logs."
+    >
+
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+
+<body id="top">
+
+    <header class="site-header">
+        <nav class="navbar">
+
+            <a href="../../index.html#home" class="logo">AETHER</a>
+
+            <ul class="nav-links">
+                <li><a href="../../index.html#projects">Projects</a></li>
+                <li><a href="../../index.html#writing">Writing</a></li>
+                <li><a href="../../index.html#experience">Experience</a></li>
+                <li><a href="../../index.html#about">About</a></li>
+            </ul>
+
+            <a
+                href="../../assets/documents/Aether_Sud_Resume.pdf"
+                class="resume-link"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Resume
+            </a>
+
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="mobile-menu"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </nav>
+
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="../../index.html#projects">Projects</a>
+            <a href="../../index.html#writing">Writing</a>
+            <a href="../../index.html#experience">Experience</a>
+            <a href="../../index.html#about">About</a>
+
+            <a
+                href="../../assets/documents/Aether_Sud_Resume.pdf"
+                class="mobile-resume-link"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Resume
+            </a>
+        </div>
+    </header>
+
+
+    <main class="article-page">
+
+        <!-- =================================================
+             ARTICLE HERO
+             ================================================= -->
+
+        <section class="article-hero">
+
+            <a
+                href="../../index.html#writing"
+                class="project-back-link"
+            >
+                ← Back to Writing
+            </a>
+
+            <p class="section-label">Troubleshooting Guide</p>
+
+            <h1>A Practical Approach to REST API Troubleshooting</h1>
+
+            <p class="article-lead">
+                API failures are easier to diagnose when troubleshooting follows
+                a consistent path. This guide walks through a practical workflow
+                for isolating connectivity, authentication, request, response,
+                and application-level problems.
+            </p>
+
+            <div class="project-tags">
+                <span>REST</span>
+                <span>HTTP</span>
+                <span>JSON</span>
+                <span>APIs</span>
+                <span>Troubleshooting</span>
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             INTRODUCTION
+             ================================================= -->
+
+        <article class="article-content">
+
+            <section class="article-section">
+
+                <p class="section-label">Start Here</p>
+                <h2>Don't Troubleshoot Everything at Once</h2>
+
+                <p>
+                    When an API request fails, the fastest approach is usually to
+                    narrow the problem one layer at a time. A failed request can
+                    originate from networking, DNS, TLS, authentication, request
+                    formatting, application logic, rate limiting, or the remote
+                    service itself.
+                </p>
+
+                <p>
+                    Instead of changing multiple variables at once, establish
+                    what is working first, then move progressively closer to the
+                    application layer.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 WORKFLOW
+                 ================================================= -->
+
+            <section class="article-section">
+
+                <p class="section-label">Workflow</p>
+                <h2>A Reliable Troubleshooting Order</h2>
+
+                <div class="article-steps">
+
+                    <article class="article-step">
+                        <span>01</span>
+                        <div>
+                            <h3>Confirm the Target</h3>
+                            <p>
+                                Verify the hostname, base URL, endpoint path,
+                                HTTP method, and environment before investigating
+                                anything deeper.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="article-step">
+                        <span>02</span>
+                        <div>
+                            <h3>Verify Connectivity</h3>
+                            <p>
+                                Confirm DNS resolution, route availability, port
+                                accessibility, and TLS connectivity.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="article-step">
+                        <span>03</span>
+                        <div>
+                            <h3>Inspect the HTTP Response</h3>
+                            <p>
+                                Status codes often tell you which troubleshooting
+                                branch to follow next.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="article-step">
+                        <span>04</span>
+                        <div>
+                            <h3>Validate Authentication</h3>
+                            <p>
+                                Check tokens, API keys, headers, expiration,
+                                permissions, scopes, and environment mismatches.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="article-step">
+                        <span>05</span>
+                        <div>
+                            <h3>Validate the Request</h3>
+                            <p>
+                                Compare headers, parameters, content type, and
+                                JSON structure against the API's expected schema.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="article-step">
+                        <span>06</span>
+                        <div>
+                            <h3>Inspect the Response Body</h3>
+                            <p>
+                                Error payloads frequently contain more useful
+                                detail than the status code alone.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="article-step">
+                        <span>07</span>
+                        <div>
+                            <h3>Reproduce Independently</h3>
+                            <p>
+                                Test the same request outside the original
+                                application to isolate client-side behavior.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="article-step">
+                        <span>08</span>
+                        <div>
+                            <h3>Correlate With Logs</h3>
+                            <p>
+                                Use timestamps, request IDs, and application logs
+                                to connect client behavior with server-side events.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 STATUS CODES
+                 ================================================= -->
+
+            <section class="article-section">
+
+                <p class="section-label">HTTP</p>
+                <h2>Use Status Codes as Directional Clues</h2>
+
+                <div class="status-grid">
+
+                    <article class="status-card">
+                        <strong>400</strong>
+                        <h3>Bad Request</h3>
+                        <p>
+                            Look closely at JSON syntax, required fields,
+                            parameter names, values, and content type.
+                        </p>
+                    </article>
+
+                    <article class="status-card">
+                        <strong>401</strong>
+                        <h3>Unauthorized</h3>
+                        <p>
+                            Investigate credentials, token expiration,
+                            authentication headers, and environment selection.
+                        </p>
+                    </article>
+
+                    <article class="status-card">
+                        <strong>403</strong>
+                        <h3>Forbidden</h3>
+                        <p>
+                            Authentication may have succeeded, but the caller may
+                            lack permission for the requested resource or action.
+                        </p>
+                    </article>
+
+                    <article class="status-card">
+                        <strong>404</strong>
+                        <h3>Not Found</h3>
+                        <p>
+                            Confirm the endpoint path, API version, resource ID,
+                            environment, and HTTP method.
+                        </p>
+                    </article>
+
+                    <article class="status-card">
+                        <strong>429</strong>
+                        <h3>Too Many Requests</h3>
+                        <p>
+                            Check documented rate limits and implement retry or
+                            backoff behavior where appropriate.
+                        </p>
+                    </article>
+
+                    <article class="status-card">
+                        <strong>5xx</strong>
+                        <h3>Server Error</h3>
+                        <p>
+                            Reproduce the request, capture timestamps and request
+                            identifiers, then determine whether the issue is
+                            transient or consistently reproducible.
+                        </p>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 EXAMPLE REQUEST
+                 ================================================= -->
+
+            <section class="article-section">
+
+                <p class="section-label">Example</p>
+                <h2>Inspect the Request Before Blaming the API</h2>
+
+                <p>
+                    Consider a simple POST request that sends JSON to an API:
+                </p>
+
+                <div class="code-window">
+
+                    <div class="code-header">
+                        <span>HTTP Request</span>
+                    </div>
+
+                    <pre><code>POST /v1/example HTTP/1.1
+Host: api.example.com
+Authorization: Bearer &lt;token&gt;
+Content-Type: application/json
+
+{
+    "name": "Aether",
+    "enabled": true
+}</code></pre>
+
+                </div>
+
+                <p>
+                    If the server returns a 400 response, compare the payload
+                    against the API schema before changing authentication,
+                    network configuration, or unrelated application settings.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 INDEPENDENT REPRODUCTION
+                 ================================================= -->
+
+            <section class="article-section">
+
+                <p class="section-label">Isolation</p>
+                <h2>Reproduce the Request Outside the Application</h2>
+
+                <p>
+                    One of the most useful troubleshooting steps is reproducing
+                    the request independently. This helps determine whether the
+                    failure belongs to the API request itself or to the
+                    application generating it.
+                </p>
+
+                <div class="code-window">
+
+                    <div class="code-header">
+                        <span>Python Example</span>
+                    </div>
+
+                    <pre><code>import requests
+
+url = "https://api.example.com/v1/example"
+
+payload = {
+    "name": "Aether",
+    "enabled": True,
+}
+
+response = requests.post(
+    url,
+    json=payload,
+    timeout=15,
+)
+
+print(response.status_code)
+print(response.text)</code></pre>
+
+                </div>
+
+                <p>
+                    If the standalone request succeeds while the application
+                    fails, the problem is likely somewhere in the application's
+                    request construction, environment, configuration, or runtime
+                    behavior.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 LOGGING
+                 ================================================= -->
+
+            <section class="article-section">
+
+                <p class="section-label">Correlation</p>
+                <h2>Logs Turn Guessing Into Evidence</h2>
+
+                <p>
+                    When available, correlate the client request with server-side
+                    or application logs. Useful identifiers include timestamps,
+                    transaction IDs, request IDs, user IDs, endpoint paths, and
+                    error codes.
+                </p>
+
+                <p>
+                    Good escalation notes should describe what was tested, what
+                    succeeded, what failed, how the problem was reproduced, and
+                    the evidence supporting the conclusion.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 TROUBLESHOOTING CHECKLIST
+                 ================================================= -->
+
+            <section class="article-section">
+
+                <p class="section-label">Quick Reference</p>
+                <h2>API Troubleshooting Checklist</h2>
+
+                <ul class="article-checklist">
+                    <li>Confirm the correct hostname and environment.</li>
+                    <li>Verify DNS resolution and network connectivity.</li>
+                    <li>Confirm the HTTP method and endpoint path.</li>
+                    <li>Review the returned HTTP status code.</li>
+                    <li>Verify authentication credentials and permissions.</li>
+                    <li>Validate required headers and content type.</li>
+                    <li>Validate parameters and JSON structure.</li>
+                    <li>Read the complete response body.</li>
+                    <li>Reproduce the request independently.</li>
+                    <li>Correlate the attempt with available logs.</li>
+                    <li>Capture reproduction steps and evidence before escalation.</li>
+                </ul>
+
+            </section>
+
+
+            <!-- =================================================
+                 FINAL THOUGHT
+                 ================================================= -->
+
+            <section class="article-section">
+
+                <p class="section-label">Takeaway</p>
+                <h2>Troubleshooting Is an Elimination Process</h2>
+
+                <p>
+                    REST API troubleshooting becomes much more manageable when
+                    each layer is validated independently. Start with the target
+                    and connectivity, use the HTTP response to choose the next
+                    branch, reproduce the request outside the original
+                    application, and document the evidence you collect.
+                </p>
+
+                <p>
+                    The goal is not to guess the most likely cause. The goal is
+                    to eliminate possibilities until the failure has nowhere
+                    left to hide.
+                </p>
+
+            </section>
+
+        </article>
+
+    </main>
+
+
+    <footer class="site-footer">
+
+        <div class="footer-content">
+
+            <p>Built from scratch by Aether Sud.</p>
+
+            <div class="footer-links">
+                <a href="https://github.com/aetherlumen">GitHub</a>
+                <a href="#top">Back to Top ↑</a>
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="../../js/main.js"></script>
+
+</body>
+
+</html>

@@ -158,10 +158,10 @@ if (supportsHover.matches) {
 
 const networkEffectEnabled = true;
 
-const nodeCount = 12;
-const connectionDistance = 180;
-const nodeSpeed = 0.18;
-const pulseChance = 0.003;
+const nodeCount = 60;
+const connectionDistance = 300;
+const nodeSpeed = 0.35;
+const pulseChance = 0.001;
 
 const canvas = document.querySelector("#network-canvas");
 const hero = document.querySelector(".hero");
@@ -177,26 +177,35 @@ if (networkEffectEnabled && canvas && hero) {
     const pulses = [];
 
     /*
-       Resize the canvas to match the hero section.
+   Resize the network canvas to the full browser width
+   while matching the hero section's height.
 
-       devicePixelRatio keeps the canvas sharp on
-       high-density displays.
-    */
-    function resizeCanvas() {
-        const rect = hero.getBoundingClientRect();
-        const pixelRatio = window.devicePixelRatio || 1;
+   Using window.innerWidth here prevents the canvas from
+   inheriting the site's normal max-width content constraint.
+*/
 
-        width = rect.width;
-        height = rect.height;
+function resizeCanvas() {
+    const heroRect = hero.getBoundingClientRect();
+    const pixelRatio = window.devicePixelRatio || 1;
 
-        canvas.width = width * pixelRatio;
-        canvas.height = height * pixelRatio;
+    width = window.innerWidth;
+    height = heroRect.height;
 
-        canvas.style.width = `${width}px`;
-        canvas.style.height = `${height}px`;
+    canvas.width = width * pixelRatio;
+    canvas.height = height * pixelRatio;
 
-        ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
-    }
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+
+    ctx.setTransform(
+        pixelRatio,
+        0,
+        0,
+        pixelRatio,
+        0,
+        0
+    );
+}
 
     /*
        Create one network node with a random position
