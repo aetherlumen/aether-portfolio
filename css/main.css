@@ -90,20 +90,25 @@ main {
    ========================================================= */
 
 /*
-   >>> EDIT: Govee-style glow controls <<<
+   >>> EDIT: Interactive glow controls <<<
 
-   width / height:
-   Controls the size of each glow source.
-
-   blur:
-   Higher = softer and more diffused.
+   --glow-x / --glow-y:
+   Updated by JavaScript based on cursor position.
 
    opacity:
-   Higher = brighter and more visible.
+   Controls overall brightness.
 
-   animation duration:
-   Higher = slower movement.
+   blur:
+   Controls softness.
+
+   width / height:
+   Controls glow size.
 */
+
+:root {
+    --glow-x: 18%;
+    --glow-y: 22%;
+}
 
 body::before,
 body::after {
@@ -123,9 +128,10 @@ body::after {
     z-index: -1;
 }
 
+/* Orange / coral glow follows cursor on desktop */
 body::before {
-    top: 5%;
-    left: -10%;
+    top: var(--glow-y);
+    left: var(--glow-x);
 
     background:
         radial-gradient(circle,
@@ -133,9 +139,10 @@ body::before {
             rgba(255, 107, 107, 0.55) 45%,
             transparent 75%);
 
-    animation: glow-orange 18s ease-in-out infinite alternate;
+    transform: translate(-50%, -50%);
 }
 
+/* Purple glow remains autonomous */
 body::after {
     top: 35%;
     right: -12%;
@@ -147,20 +154,6 @@ body::after {
             transparent 75%);
 
     animation: glow-purple 22s ease-in-out infinite alternate;
-}
-
-@keyframes glow-orange {
-    0% {
-        transform: translate(0, 0) scale(1);
-    }
-
-    50% {
-        transform: translate(8vw, 10vh) scale(1.15);
-    }
-
-    100% {
-        transform: translate(4vw, 22vh) scale(0.95);
-    }
 }
 
 @keyframes glow-purple {
@@ -415,6 +408,44 @@ body::after {
     background: var(--surface);
 
     color: var(--accent);
+}
+
+
+/* =========================================================
+   05A. HERO NETWORK CANVAS
+   ========================================================= */
+
+/*
+   Decorative network field behind the hero content.
+
+   >>> EDIT: Canvas opacity <<<
+   Lower = more subtle.
+   Raise carefully if you want the effect more visible.
+*/
+
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.network-canvas {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0.28;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+
+    max-width: 850px;
 }
 
 
@@ -771,8 +802,237 @@ section:not(.hero)>h2 {
 }
 
 
+
 /* =========================================================
-   13. RESPONSIVE / MOBILE
+   13. PROJECT DETAIL PAGES
+   ========================================================= */
+
+/*
+   Shared styling for individual portfolio case studies.
+
+   >>> EDIT:
+   -- Project content width
+   -- Hero spacing
+   -- Architecture card sizing
+*/
+
+.project-page {
+    width: min(100% - 2rem, var(--max-width));
+    margin-inline: auto;
+}
+
+
+/* -------Project Hero------- */
+
+.project-hero {
+    padding-block: 7rem 6rem;
+}
+
+.project-back-link {
+    display: inline-block;
+
+    margin-bottom: 3rem;
+
+    color: var(--text-muted);
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.project-back-link:hover {
+    color: var(--accent);
+
+    transform: translateX(-3px);
+}
+
+.project-hero h1 {
+    max-width: 950px;
+
+    font-size: clamp(3rem, 8vw, 6rem);
+
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+
+    margin-bottom: 2rem;
+}
+
+.project-lead {
+    max-width: 800px;
+
+    color: var(--text-muted);
+
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+
+    margin-bottom: 2rem;
+}
+
+
+/* -------Project Metadata------- */
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 3rem;
+
+    margin-top: 3rem;
+    padding-top: 2rem;
+
+    border-top: 1px solid var(--border);
+}
+
+.project-meta-label {
+    display: block;
+
+    color: var(--accent-secondary);
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    margin-bottom: 0.25rem;
+}
+
+.project-meta p {
+    color: var(--text-muted);
+}
+
+
+/* -------Shared Project Sections------- */
+
+.project-section {
+    padding-block: 6rem;
+
+    border-top: 1px solid var(--border);
+}
+
+.project-section>h2 {
+    max-width: 800px;
+
+    font-size: clamp(2rem, 5vw, 3.5rem);
+
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+
+    margin-bottom: 2rem;
+}
+
+.project-section>p,
+.project-story {
+    max-width: 800px;
+
+    color: var(--text-muted);
+
+    font-size: 1.08rem;
+}
+
+.project-section>p+p,
+.project-story p+p {
+    margin-top: 1.5rem;
+}
+
+
+/* -------Architecture Flow------- */
+
+.architecture-flow {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+
+    align-items: stretch;
+
+    gap: 1rem;
+
+    margin-top: 3rem;
+}
+
+.architecture-node {
+    padding: 1.5rem;
+
+    background: rgba(18, 24, 33, 0.72);
+    backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius);
+}
+
+.architecture-node>span {
+    display: inline-block;
+
+    color: var(--accent-secondary);
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    margin-bottom: 1rem;
+}
+
+.architecture-node h3 {
+    margin-bottom: 0.75rem;
+}
+
+.architecture-node p {
+    color: var(--text-muted);
+
+    font-size: 0.9rem;
+}
+
+.architecture-arrow {
+    display: flex;
+    align-items: center;
+
+    color: var(--accent);
+
+    font-size: 1.5rem;
+}
+
+
+/* -------Technical Detail Cards------- */
+
+.project-detail-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 1rem;
+
+    margin-top: 3rem;
+}
+
+.project-detail-card {
+    padding: 2rem;
+
+    background: rgba(18, 24, 33, 0.72);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius);
+}
+
+.project-detail-card h3 {
+    margin-bottom: 0.75rem;
+}
+
+.project-detail-card p {
+    color: var(--text-muted);
+}
+
+
+/* -------Project Actions------- */
+
+.project-actions {
+    margin-top: 2rem;
+}
+
+
+/* =========================================================
+   14. RESPONSIVE / MOBILE
    ========================================================= */
 
 /*
@@ -810,10 +1070,33 @@ section:not(.hero)>h2 {
 
         gap: 1rem;
     }
+
+    /* Project detail pages */
+    .project-hero {
+        padding-block: 5rem;
+    }
+
+    .project-meta {
+        gap: 1.5rem;
+    }
+
+    .architecture-flow {
+        grid-template-columns: 1fr;
+    }
+
+    .architecture-arrow {
+        justify-content: center;
+
+        transform: rotate(90deg);
+    }
+
+    .project-detail-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* =========================================================
-   14. ACCESSIBILITY
+   15. ACCESSIBILITY
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -832,3 +1115,5 @@ section:not(.hero)>h2 {
         transform: none !important;
     }
 }
+
+

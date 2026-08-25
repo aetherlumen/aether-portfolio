@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- >>> EDIT: Project page title / SEO description <<< -->
+    <title>Weather Monitoring Bot | Aether Sud</title>
+
+    <meta
+        name="description"
+        content="Case study for a Python-based weather monitoring and alerting tool built by Aether Sud."
+    >
+
+    <!-- Project pages reuse the main site stylesheet -->
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+
+<body id="top">
+
+    <header class="site-header">
+        <nav class="navbar">
+
+            <!-- ../../ returns from /projects/weather-monitor/ back to the site root -->
+            <a href="../../index.html#home" class="logo">AETHER</a>
+
+            <ul class="nav-links">
+                <li><a href="../../index.html#projects">Projects</a></li>
+                <li><a href="../../index.html#writing">Writing</a></li>
+                <li><a href="../../index.html#experience">Experience</a></li>
+                <li><a href="../../index.html#about">About</a></li>
+            </ul>
+
+            <a href="#" class="resume-link">Resume</a>
+
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="mobile-menu"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </nav>
+
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="../../index.html#projects">Projects</a>
+            <a href="../../index.html#writing">Writing</a>
+            <a href="../../index.html#experience">Experience</a>
+            <a href="../../index.html#about">About</a>
+            <a href="#" class="mobile-resume-link">Resume</a>
+        </div>
+    </header>
+
+
+    <main class="project-page">
+
+        <!-- =================================================
+             PROJECT HERO
+             ================================================= -->
+
+        <section class="project-hero">
+
+            <a
+                href="../../index.html#projects"
+                class="project-back-link"
+            >
+                ← Back to Projects
+            </a>
+
+            <!-- >>> EDIT: Project category <<< -->
+            <p class="section-label">Automation / APIs</p>
+
+            <!-- >>> EDIT: Project name <<< -->
+            <h1>Weather Monitoring Bot</h1>
+
+            <!-- >>> EDIT: Short project summary <<< -->
+            <p class="project-lead">
+                A Python-based monitoring tool designed to collect weather
+                information, evaluate potentially disruptive conditions, and
+                make the results easier to surface through operational workflows.
+            </p>
+
+            <div class="project-tags">
+                <span>Python</span>
+                <span>REST APIs</span>
+                <span>JSON</span>
+                <span>Automation</span>
+                <span>Weather Data</span>
+            </div>
+
+            <div class="project-meta">
+
+                <div>
+                    <span class="project-meta-label">Type</span>
+                    <p>Automation / Monitoring</p>
+                </div>
+
+                <div>
+                    <span class="project-meta-label">Status</span>
+                    <p>Active Development</p>
+                </div>
+
+                <div>
+                    <span class="project-meta-label">Role</span>
+                    <p>Design & Development</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             OVERVIEW
+             ================================================= -->
+
+        <section class="project-section">
+
+            <p class="section-label">Overview</p>
+            <h2>The Problem</h2>
+
+            <!-- >>> EDIT: Explain the original problem here <<< -->
+            <p>
+                Weather conditions can affect operations across geographically
+                distributed locations, but manually checking forecasts and
+                alerts for multiple areas is repetitive and easy to overlook.
+                The goal of this project was to explore how weather data could
+                be collected and processed automatically so relevant conditions
+                could be surfaced more efficiently.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             SOLUTION
+             ================================================= -->
+
+        <section class="project-section">
+
+            <p class="section-label">Approach</p>
+            <h2>The Solution</h2>
+
+            <!-- >>> EDIT: Update this as the project evolves <<< -->
+            <p>
+                I built a Python application that retrieves weather information
+                from external APIs, processes structured response data, and
+                evaluates conditions against defined monitoring logic.
+            </p>
+
+            <p>
+                The project also became an opportunity to practice API
+                integration, JSON processing, automation, error handling, and
+                designing output that could eventually be consumed by other
+                systems or displayed through a web interface.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             ARCHITECTURE
+             ================================================= -->
+
+        <section class="project-section">
+
+            <p class="section-label">Architecture</p>
+            <h2>How It Works</h2>
+
+            <div class="architecture-flow">
+
+                <div class="architecture-node">
+                    <span>01</span>
+                    <h3>Location Input</h3>
+                    <p>
+                        A configured location or list of locations defines
+                        what areas should be monitored.
+                    </p>
+                </div>
+
+                <div class="architecture-arrow">→</div>
+
+                <div class="architecture-node">
+                    <span>02</span>
+                    <h3>Weather API</h3>
+                    <p>
+                        Python requests current and forecast weather data from
+                        external services.
+                    </p>
+                </div>
+
+                <div class="architecture-arrow">→</div>
+
+                <div class="architecture-node">
+                    <span>03</span>
+                    <h3>Analysis</h3>
+                    <p>
+                        API responses are parsed and evaluated for relevant
+                        conditions.
+                    </p>
+                </div>
+
+                <div class="architecture-arrow">→</div>
+
+                <div class="architecture-node">
+                    <span>04</span>
+                    <h3>Output</h3>
+                    <p>
+                        Results can be formatted for alerts, operational tools,
+                        or web-based presentation.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             TECHNICAL DETAILS
+             ================================================= -->
+
+        <section class="project-section">
+
+            <p class="section-label">Under the Hood</p>
+            <h2>Technical Details</h2>
+
+            <div class="project-detail-grid">
+
+                <article class="project-detail-card">
+                    <h3>API Integration</h3>
+                    <p>
+                        Retrieves structured weather data from external
+                        endpoints and handles JSON responses for downstream
+                        processing.
+                    </p>
+                </article>
+
+                <article class="project-detail-card">
+                    <h3>Condition Analysis</h3>
+                    <p>
+                        Evaluates forecast and alert information against
+                        monitoring logic to identify conditions worth surfacing.
+                    </p>
+                </article>
+
+                <article class="project-detail-card">
+                    <h3>Automation</h3>
+                    <p>
+                        Designed to reduce repetitive manual weather checks and
+                        support scheduled or automated execution.
+                    </p>
+                </article>
+
+                <article class="project-detail-card">
+                    <h3>Extensibility</h3>
+                    <p>
+                        Output can be adapted for messaging platforms, dashboards,
+                        websites, or other operational workflows.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CHALLENGES
+             ================================================= -->
+
+        <section class="project-section">
+
+            <p class="section-label">Lessons Learned</p>
+            <h2>Challenges & Iteration</h2>
+
+            <div class="project-story">
+
+                <!-- >>> EDIT:
+                     Add real issues you encountered here.
+                     Specific debugging stories are especially valuable.
+                -->
+
+                <p>
+                    One of the biggest challenges was ensuring the program did
+                    not simply retrieve weather data, but interpreted the right
+                    information for operational use. Forecast timing, active
+                    alerts, and different forms of weather data can require
+                    different handling.
+                </p>
+
+                <p>
+                    Iterating on the project reinforced the importance of
+                    validating API responses against real-world conditions
+                    instead of assuming that a technically successful request
+                    automatically means the resulting output is useful.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CODE / LINKS
+             ================================================= -->
+
+        <section class="project-section">
+
+            <p class="section-label">Source</p>
+            <h2>Explore the Project</h2>
+
+            <p>
+                Source code and additional technical documentation will be
+                published as the project is prepared for public release.
+            </p>
+
+            <div class="hero-actions project-actions">
+
+                <!-- >>> EDIT: Add real repository URL when ready <<< -->
+                <a href="#">
+                    View Source
+                </a>
+
+                <a href="../../index.html#projects">
+                    More Projects
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+
+        <div class="footer-content">
+
+            <p>Built from scratch by Aether Sud.</p>
+
+            <div class="footer-links">
+                <a href="https://github.com/aetherlumen">GitHub</a>
+                <a href="#top">Back to Top ↑</a>
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="../../js/main.js"></script>
+
+</body>
+
+</html>
