@@ -728,7 +728,51 @@ section:not(.hero)>h2 {
 
 
 /* =========================================================
-   12. RESPONSIVE / MOBILE
+   12. SCROLL REVEAL ANIMATIONS
+   ========================================================= */
+
+/*
+   Elements with .reveal start slightly lower and transparent.
+   JavaScript adds .is-visible when they enter the viewport.
+*/
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(24px);
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+/*
+   >>> EDIT: Stagger timing <<<
+   Increase/decrease these delays if you want cards to appear
+   more slowly or more quickly after one another.
+*/
+
+.reveal-delay-1 {
+    transition-delay: 0.08s;
+}
+
+.reveal-delay-2 {
+    transition-delay: 0.16s;
+}
+
+.reveal-delay-3 {
+    transition-delay: 0.24s;
+}
+
+
+/* =========================================================
+   13. RESPONSIVE / MOBILE
    ========================================================= */
 
 /*
@@ -768,9 +812,8 @@ section:not(.hero)>h2 {
     }
 }
 
-
 /* =========================================================
-   13. ACCESSIBILITY
+   14. ACCESSIBILITY
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -784,4 +827,8 @@ section:not(.hero)>h2 {
         scroll-behavior: auto !important;
     }
 
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+    }
 }
